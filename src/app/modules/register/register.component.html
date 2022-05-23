@@ -1,0 +1,79 @@
+<form (ngSubmit)="register()" [formGroup]="registerForm">
+   <div class="row marginZero">
+    <div class="form-group col-3">
+        <label for="fullName">Full Name</label>
+        <input id="register-fullName" type="fullName" formControlName="fullName" name="fullName" 
+        placeholder="Enter username" class="form-control">
+        <small *ngIf="registerformCotrls.fullName.invalid && (registerformCotrls.fullName.dirty || registerformCotrls.fullName.touched)" class="error-message">
+            <ng-template [ngIf]="registerformCotrls.fullName.errors.required"> Please enter Full Name</ng-template>
+            <ng-template [ngIf]="registerformCotrls.fullName.errors.minlength">Full Name should be minimum 4 characters</ng-template>
+        </small>
+    </div>
+    <div class="form-group col-3">
+        <label for="email">Email ID</label>
+        <input id="register-emailid" type="email" formControlName="email" name="email" placeholder="Enter email ID" class="form-control">
+        <small *ngIf="registerformCotrls.email.invalid && (registerformCotrls.email.dirty || registerformCotrls.email.touched)" class="error-message">
+            <ng-template [ngIf]="registerformCotrls.email.errors.required">Please enter email ID</ng-template>
+            <ng-template [ngIf]="registerformCotrls.email.errors.email">Please enter the valid Email ID</ng-template>
+        </small>
+    </div>
+    <div class="form-group col-3">
+        <label for="dob">Date Of Birth</label> 
+        <input id="register-dob" type="text" formControlName="dob" name="dob" placeholder="Date Of Birth" class="form-control">
+        <small *ngIf="registerformCotrls.dob.invalid && (registerformCotrls.dob.dirty || registerformCotrls.dob.touched)" class="error-message">
+            <ng-template [ngIf]="registerformCotrls.dob.errors.required">Please enter Date Of Birth</ng-template>
+        </small>
+    </div>
+    <div class="form-group col-3">
+        <label for="company">Company Name</label>
+        <input id="register-company" type="text" formControlName="company" name="company" placeholder="Company Name" class="form-control">
+        <small *ngIf="registerformCotrls.company.invalid && (registerformCotrls.company.dirty || registerformCotrls.company.touched)" class="error-message">
+            <ng-template [ngIf]="registerformCotrls.company.errors.required"> Company Name required</ng-template>
+        </small>
+    </div>
+
+    <div class="form-group col-3">
+        <label for="phone">Phone Number</label>
+        <input id="register-confirmpassword" type="number" formControlName="phone" name="phone" placeholder="Phone Number" class="form-control">
+        <small *ngIf="registerformCotrls.phone.invalid && (registerformCotrls.phone.dirty || registerformCotrls.phone.touched)" class="error-message">
+            <ng-template [ngIf]="registerformCotrls.phone.errors.required"> Phone number required</ng-template>
+        </small>
+    </div>
+
+
+    <div class="form-group col-3">
+        <label for="gender">Gender:</label>
+        <div>
+          <input id="male" type="radio" value="male" name="gender" formControlName="gender">
+          <label for="male">Male</label>
+       </div>
+
+       <div>
+          <input id="female" type="radio" value="female" name="gender" formControlName="gender">
+          <label for="female">Female</label>
+       </div>
+          
+
+        <small *ngIf="registerformCotrls.gender.invalid && (registerformCotrls.gender.dirty || registerformCotrls.gender.touched)" class="error-message">
+            <ng-template [ngIf]="registerformCotrls.gender.errors.required"> Gender required</ng-template>
+        </small>
+
+    </div>
+
+    <div class="form-group col-3">
+        <label for="position">Position</label>
+        <input id="register-position" type="text" formControlName="position" name="position" placeholder="Position" class="form-control">
+        <small *ngIf="registerformCotrls.position.invalid && (registerformCotrls.position.dirty || registerformCotrls.position.touched)" class="error-message">
+            <ng-template [ngIf]="registerformCotrls.position.errors.required"> Postion required</ng-template>
+        </small>
+    </div>
+
+   </div>
+   
+
+    <div class="loginbutton">
+        <button class="btn btn-primary" (click)="GoHome()">Go Home</button>
+        <button class="btn btn-primary" type="submit" (click)="register()">Register</button>
+
+    </div>
+</form>

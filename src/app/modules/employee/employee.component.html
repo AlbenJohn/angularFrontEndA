@@ -1,0 +1,82 @@
+<!-- <p>employee works!</p>
+<button class="btn btn-primary">create</button> -->
+<!-- <div class="row marginZero"> -->
+    <input
+    type="text"
+    class="ml-8 mr-8"
+    style="padding:8px;margin:15px auto;width:30%;"
+    placeholder="Type to filter the name column..."
+    [(ngModel)]="selectedEmployee"
+    (ngModalChange)="searchName($event)"
+   
+  />
+  <button class="btn btn-primary ml-8 mr-8" (click)="filter()">Search</button>
+  <button class="btn btn-primary ml-8 mr-8" (click)="RefreshData()">Refresh</button>
+   <button class="btn btn-primary ml-8 mr-8" (click)="GotoRegistration()">Register</button>
+   <!-- <button class="btn btn-primary" (click)="saveNew()">Save</button> -->
+
+<!-- </div> -->
+<div class="parentDiv">
+    <ngx-datatable class="bootstrap" #employeeTable 
+    [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+      [rowHeight]="50" [scrollbarV]="false" 
+      [scrollbarH]="true"
+      [sorts]="[{prop: 'name', dir: 'desc'}]" [limit]="10">
+    
+      <ngx-datatable-column name="fullName">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.fullName}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="position">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.position}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="dob">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.dob}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="email">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.email}}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="phone">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.phone}}
+        </ng-template>
+      </ngx-datatable-column>
+
+     
+
+      <ngx-datatable-column name="Company">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{row.company}}
+        </ng-template>
+      </ngx-datatable-column>
+ 
+    
+      <ngx-datatable-column name="Gender">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.gender | employeeGender:row}}
+          </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Actions">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <span>
+                <button class="btn btn-primary ml-8 mr-8" (click)="EditButtonClicked(row)">edit</button>
+            </span>
+            <span>
+                <button class="btn btn-danger ml-8 mr-8" (click)="delete(row)"> Delete</button>
+            </span>
+        </ng-template>
+      </ngx-datatable-column>
+    
+    </ngx-datatable>
+</div>

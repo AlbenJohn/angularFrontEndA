@@ -74,7 +74,7 @@ export class employeeEffects {
     catchError((resp: any) => of(employeeActions.employeeFilterFailedAction(resp.error))))
   );
 
-  sortEmployeeList$ = createEffect(() => his.actions$.pipe(
+  sortEmployeeList$ = createEffect(() => this.actions$.pipe(
     ofType(employeeActions.employeeSortingRequestAction),
     switchMap((req: any) => of(employeeActions.employeeSortingSuccessAction(req.sorting))),
     catchError((resp: any) => of(employeeActions.employeeSortingFailedAction(resp.error))))
